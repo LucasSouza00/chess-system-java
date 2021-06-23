@@ -36,7 +36,7 @@ public class UI {
 	
 	// https://stackoverflow.com/questions/2979383/java-clear-the-console
 	public static void clearScreen() {
-		//System.out.print("\033[H\033[2J");//
+		System.out.print("\033[H\033[2J");
 		System.out.flush();
 	} 
 	
@@ -96,15 +96,15 @@ public class UI {
 		if (background) {
 			System.out.print(ANSI_BLUE_BACKGROUND);
 		}
-		if (piece == null) {
-            System.out.print("-");
+    	if (piece == null) {
+            System.out.print("-" + ANSI_RESET);
         }
         else {
             if (piece.getColor() == Color.WHITE) {
-                System.out.print(piece);
+                System.out.print(ANSI_WHITE + piece + ANSI_RESET);
             }
             else {
-                System.out.print(piece);
+                System.out.print(ANSI_YELLOW + piece + ANSI_RESET);
             }
         }
         System.out.print(" ");
